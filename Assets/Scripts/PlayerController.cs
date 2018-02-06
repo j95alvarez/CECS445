@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
+
+	public int jumpHeight;
+
 	// Update is called once per frame
 	void Update () {
-		
+		if(Input.GetButtonDown("Jump")){
+			Jump ();
+		}
 	}
+
+	void Jump(){
+		GetComponent<Rigidbody2D> ().AddForce (Vector2.up * jumpHeight);
+	}
+
 }
