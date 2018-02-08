@@ -3,36 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-
-
+    public bool startGame;
 	public int jumpHeight;
 	public bool canJump;
 
+    void Start() {
+        startGame = false;
+    }
 
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update () {
 		if (Input.GetButtonDown ("Jump")) {
-			if (canJump == true) {
+			if (canJump && startGame) {
 				Jump ();
 			}
 		}
 	}
 
-
-	void OnCollisionEnter2D (Collision2D other) 
-	{
+	public void OnCollisionEnter2D (Collision2D other) {
 		canJump = true;
 	}
 
-	void OnCollisionExit2D (Collision2D other) 
-	{
+	public void OnCollisionExit2D (Collision2D other) {
 		canJump = false;
 	}
-
-
-
-	void Jump(){
-		GetComponent<Rigidbody2D> ().AddForce (Vector2.up * jumpHeight);
+    
+	public void Jump(){
+		GetComponent<Rigidbody2D> ().AddForce (Vector2.up * jumpHeight * Time.timeScale);
 	}
 
 }
