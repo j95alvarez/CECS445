@@ -7,14 +7,21 @@ public class PlayerController : MonoBehaviour {
 	public int jumpHeight;
 	public bool canJump;
 
+	public Animator anim;
+
     void Start() {
         startGame = false;
+		anim = gameObject.GetComponent<Animator> ();
     }
 
     // Update is called once per frame
     void Update () {
+		if (startGame) {
+			anim.SetBool ("Running", true);
+		}
+
 		if (Input.GetButtonDown ("Jump")) {
-			if (canJump && startGame) {
+			if (canJump) {
 				Jump ();
 			}
 		}
