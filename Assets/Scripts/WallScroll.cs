@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class WallScroll : MonoBehaviour {
 
-	private float speed = -3f;
+	public static float speed = -3f;
 	private float start = 0f;
-	private int time = 2;
+    private int time = 4;
+    private float life = 0;
 
-	// Update is called once per frame
-	void FixedUpdate () {
-		start += Time.deltaTime;
-		if (start >= time) {
-			speed += .2f;
-			start = 0;
-		}
+    // Update is called once per frame
+    void FixedUpdate () {
+        start += Time.deltaTime;
+        life += Time.deltaTime;
+        if (start >= time)
+        {
+            speed -= .05f;
+            start = 0f;
+        }
+
 		gameObject.transform.Translate (new Vector2 (speed * Time.deltaTime, 0));
 	}
+
+
 }

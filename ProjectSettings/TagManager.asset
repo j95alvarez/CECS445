@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - MedWall
+  - Boss
+  - Floor
   layers:
   - Default
   - TransparentFX
