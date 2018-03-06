@@ -32,15 +32,20 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void OnCollisionEnter2D (Collision2D other) {
-		canJump = true;
-	}
+        anim.SetBool("Running", true);
+        canJump = true;
+        anim.SetBool("Jumping", false);
+    }
 
 	public void OnCollisionExit2D (Collision2D other) {
-		canJump = false;
+        anim.SetBool("Running", false);
+        canJump = false;
 	}
     
 	public void Jump(){
-		GetComponent<Rigidbody2D> ().AddForce (Vector2.up * jumpHeight * Time.timeScale);
-	}
+        anim.SetBool("Jumping", true);
+        GetComponent<Rigidbody2D> ().AddForce (Vector2.up * jumpHeight * Time.timeScale);
+        
+    }
 
 }
