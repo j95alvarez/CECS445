@@ -22,7 +22,9 @@ public class EnemyController : MonoBehaviour {
 		Debug.Log (collisionObject.gameObject.tag); 
 
 		if (collisionObject.gameObject.tag == "Player") {
-			Destroy(collisionObject.gameObject);
+			//Destroy(collisionObject.gameObject);
+			collisionObject.gameObject.GetComponent<PlayerController>().alive = false; 
+
 		}
 	}
 }
