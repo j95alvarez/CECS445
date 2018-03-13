@@ -6,43 +6,97 @@ public class PlayerController : MonoBehaviour {
     public bool startGame;
 	public int jumpHeight;
 	public bool canJump;
-	//Boolean variable to keep track of whether the player is alive or not (true is alive, false is dead)
-	public bool alive;
+    public Vector2 firstPressPos;
+    public Vector2 secondPressPos;
+    public Vector2 currentSwipe;
+    private float timer;
+
+    private BoxCollider2D box; //.collider as BoxCollider;
+
+    //Boolean variable to keep track of whether the player is alive or not (true is alive, false is dead)
+    public bool alive;
 
 	public Animator anim;
 
     void Start() {
         startGame = false;
 		anim = gameObject.GetComponent<Animator> ();
-		//Lets us know that the player is alive at the start of the game
-		alive = true;
+        box = GetComponent<BoxCollider2D>();
+        anim.SetBool("Running", true);
+
+        //Lets us know that the player is alive at the start of the game
+        alive = true;
     }
 
     // Update is called once per frame
     void Update () {
-		if (startGame) {
-			anim.SetBool ("Running", true);
-		}
+        Swipe();
+    }
 
-		if (Input.GetButtonDown ("Jump")) {
-			if (canJump) {
-				Jump ();
-			}
-		}
-	}
+    public void Swipe()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            //save began touch 2d point
+            firstPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            //save ended touch 2d point
+            secondPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+
+            //create vector from the two points
+            currentSwipe = new Vector2(secondPressPos.x - firstPressPos.x, secondPressPos.y - firstPressPos.y);
+
+            //normalize the 2d vector
+            currentSwipe.Normalize();
+
+            //swipe upwards
+            if (currentSwipe.y > 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
+            {
+                if (canJump)
+                {
+                    Jump();
+                }
+            }
+            //swipe down
+            if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
+            {
+                anim.SetBool("Running", false);
+                //anim.SetBool("Jumping", false);
+                anim.SetBool("Sliding", true);
+                box.size = new Vector2(0.6f, 0.6f);
+                Debug.Log("Current BoxCollider Size : " + box.size);
+                box.size = new Vector2(0.6f, 1.3f);
+                Debug.Log("Current BoxCollider Size : " + box.size);
+
+                //anim.SetBool("Running", true);
+
+
+            }
+            //swipe right
+            if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
+            {
+                Debug.Log("attack");
+            }
+           
+        }
+    }
 
 	public void OnCollisionEnter2D (Collision2D other) {
+        anim.SetBool("Jumping", false);
         anim.SetBool("Running", true);
         canJump = true;
-        anim.SetBool("Jumping", false);
     }
 
 	public void OnCollisionExit2D (Collision2D other) {
+        anim.SetBool("Sliding", false);
         anim.SetBool("Running", false);
         canJump = false;
 	}
     
 	public void Jump(){
+
         anim.SetBool("Jumping", true);
         GetComponent<Rigidbody2D> ().AddForce (Vector2.up * jumpHeight * Time.timeScale);
         

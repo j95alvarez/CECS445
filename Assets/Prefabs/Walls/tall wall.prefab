@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4519969841716724}
   - component: {fileID: 212866582681357198}
-  - component: {fileID: 50021120026419336}
   - component: {fileID: 61542183970628984}
+  - component: {fileID: 50021120026419336}
   - component: {fileID: 114039083993257526}
   m_Layer: 0
   m_Name: tall wall
@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1920094208889194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.37, y: -1.41, z: 0.13561957}
-  m_LocalScale: {x: 1.6124989, y: 7.547158, z: 1}
+  m_LocalPosition: {x: 10.44, y: -1.75, z: -0.07067819}
+  m_LocalScale: {x: 2.3105457, y: 6.481495, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -108,7 +108,6 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -124,7 +123,6 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
