@@ -9,6 +9,11 @@ public class PlayerController : MonoBehaviour {
     public Vector2 firstPressPos;
     public Vector2 secondPressPos;
     public Vector2 currentSwipe;
+
+
+    public ObjectDetection od;
+
+
     private float timer;
 
     private BoxCollider2D box; //.collider as BoxCollider;
@@ -16,13 +21,15 @@ public class PlayerController : MonoBehaviour {
     //Boolean variable to keep track of whether the player is alive or not (true is alive, false is dead)
     public bool alive;
 
-	public Animator anim;
+	private Animator anim;
 
     void Start() {
         startGame = false;
 		anim = gameObject.GetComponent<Animator> ();
         box = GetComponent<BoxCollider2D>();
         anim.SetBool("Running", true);
+
+        
 
         //Lets us know that the player is alive at the start of the game
         alive = true;
@@ -66,21 +73,32 @@ public class PlayerController : MonoBehaviour {
                 //anim.SetBool("Jumping", false);
                 anim.SetBool("Sliding", true);
                 box.size = new Vector2(0.6f, 0.6f);
+                box.offset = new Vector2(0, -0.7f);
                 Debug.Log("Current BoxCollider Size : " + box.size);
-                box.size = new Vector2(0.6f, 1.3f);
-                Debug.Log("Current BoxCollider Size : " + box.size);
-
-                //anim.SetBool("Running", true);
-
-
+                
             }
             //swipe right
             if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
             {
                 Debug.Log("attack");
+
+                var wallToDestroy = od.GetComponent<ObjectDetection>().wallDetected;
+
+                if (wallToDestroy != null)
+                    wallToDestroy.GetComponent<WallScroll>().OnDestroyWall();
             }
            
         }
+    }
+
+    public void ResetRunAnimation() {
+        box.size = new Vector2(0.6f, 1.3f);
+
+        anim.SetBool("Running", true);
+        //anim.SetBool("Jumping", false);
+        anim.SetBool("Sliding", false);
+
+        Debug.Log("Current BoxCollider Size : " + box.size);
     }
 
 	public void OnCollisionEnter2D (Collision2D other) {
@@ -96,7 +114,6 @@ public class PlayerController : MonoBehaviour {
 	}
     
 	public void Jump(){
-
         anim.SetBool("Jumping", true);
         GetComponent<Rigidbody2D> ().AddForce (Vector2.up * jumpHeight * Time.timeScale);
         

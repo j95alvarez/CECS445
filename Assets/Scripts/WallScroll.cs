@@ -17,4 +17,8 @@ public class WallScroll : MonoBehaviour {
 		}
 		gameObject.transform.Translate (new Vector2 (speed * Time.deltaTime, 0));
 	}
+
+    public void OnDestroyWall() {
+        Destroy(gameObject);
+    }
 }
