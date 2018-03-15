@@ -9,6 +9,8 @@ public class UIController : MonoBehaviour {
     public GameObject pause_button;
     public GameObject player;
 
+    public AudioSource audio;
+
     private PlayerController pc;
     // Use this for initialization
     void Start () {
@@ -55,5 +57,9 @@ public class UIController : MonoBehaviour {
 	public void loadScene(string scene){
 		Application.LoadLevel (scene);
 	}
+
+    public void MuteSound() {
+        audio.mute = !audio.mute;
+    }
 
 }
