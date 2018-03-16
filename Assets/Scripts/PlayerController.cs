@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
     public Vector2 secondPressPos;
     public Vector2 currentSwipe;
 
+<<<<<<< HEAD
 
     public ObjectDetection od;
 
@@ -33,10 +34,15 @@ public class PlayerController : MonoBehaviour {
 
         //Lets us know that the player is alive at the start of the game
         alive = true;
+=======
+    void Start() {
+        startGame = false;
+>>>>>>> parent of 7623dda... Moving background
     }
 
     // Update is called once per frame
     void Update () {
+<<<<<<< HEAD
         Swipe();
     }
 
@@ -100,6 +106,14 @@ public class PlayerController : MonoBehaviour {
 
         Debug.Log("Current BoxCollider Size : " + box.size);
     }
+=======
+		if (Input.GetButtonDown ("Jump")) {
+			if (canJump && startGame) {
+				Jump ();
+			}
+		}
+	}
+>>>>>>> parent of 7623dda... Moving background
 
 	public void OnCollisionEnter2D (Collision2D other) {
         anim.SetBool("Jumping", false);
