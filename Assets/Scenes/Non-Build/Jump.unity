@@ -194,6 +194,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &722737386
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,6 +305,8 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6275633904ef04d66b8d0c706e4a2d69, type: 2}
   m_IsPrefabParent: 0
+=======
+>>>>>>> parent of 9a850c6... Merge pull request #5 from j95alvarez/EnemyCollision
 --- !u!1001 &921600416
 Prefab:
   m_ObjectHideFlags: 0
@@ -352,10 +355,6 @@ Prefab:
         type: 2}
       propertyPath: canJump
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1990201550499384, guid: 5b25868db444b40a7b28aa0e7f852753, type: 2}
-      propertyPath: m_TagString
-      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5b25868db444b40a7b28aa0e7f852753, type: 2}
