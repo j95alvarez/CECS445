@@ -70,7 +70,6 @@ public class PlayerController : MonoBehaviour {
             if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
             {
                 anim.SetBool("Running", false);
-                //anim.SetBool("Jumping", false);
                 anim.SetBool("Sliding", true);
                 box.size = new Vector2(0.6f, 0.6f);
                 box.offset = new Vector2(0, -0.7f);
@@ -95,7 +94,6 @@ public class PlayerController : MonoBehaviour {
         box.size = new Vector2(0.6f, 1.3f);
 
         anim.SetBool("Running", true);
-        //anim.SetBool("Jumping", false);
         anim.SetBool("Sliding", false);
 
         Debug.Log("Current BoxCollider Size : " + box.size);
@@ -115,8 +113,7 @@ public class PlayerController : MonoBehaviour {
     
 	public void Jump(){
         anim.SetBool("Jumping", true);
-        GetComponent<Rigidbody2D> ().AddForce (Vector2.up * jumpHeight * Time.timeScale);
-        
+        GetComponent<Rigidbody2D> ().AddForce (Vector2.up * jumpHeight * Time.timeScale); 
     }
 
 }
