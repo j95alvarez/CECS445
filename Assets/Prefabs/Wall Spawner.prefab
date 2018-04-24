@@ -51,10 +51,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9a91fcd6531e434cad743b769854f32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startGame: 0
   walls:
   - {fileID: 1799489928573948, guid: bc6ba73124a0f4f769f9849b1e421ee6, type: 2}
   - {fileID: 1724589148855566, guid: 2d21839eb35f94ecaae6c056a0175f09, type: 2}
   - {fileID: 1034858750028970, guid: 1ccc43ce516994815b00412d19964ace, type: 2}
-  - {fileID: 1920094208889194, guid: 8670faf2a3fff4cf9be93f7e1b02073c, type: 2}
-  wallPick: 0
-  wallTypes: 4
+  delayTime: 5

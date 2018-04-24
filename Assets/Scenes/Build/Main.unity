@@ -113,6 +113,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &134984562 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1848096736608814, guid: 74c1685e87355d44dbbd95f9ba32b16c,
+    type: 2}
+  m_PrefabInternal: {fileID: 2097102221}
 --- !u!1 &382947473
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,10 +350,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1368900956504542, guid: ea8efe46afc830d47bfe97d226151570, type: 2}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea8efe46afc830d47bfe97d226151570, type: 2}
   m_IsPrefabParent: 0
@@ -401,6 +402,16 @@ Prefab:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 1638639842}
+    - target: {fileID: 114566397654606094, guid: b2b15606284788042b201f060631b019,
+        type: 2}
+      propertyPath: distance
+      value: 
+      objectReference: {fileID: 2095913171}
+    - target: {fileID: 114566397654606094, guid: b2b15606284788042b201f060631b019,
+        type: 2}
+      propertyPath: spawn
+      value: 
+      objectReference: {fileID: 134984562}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b2b15606284788042b201f060631b019, type: 2}
   m_IsPrefabParent: 0

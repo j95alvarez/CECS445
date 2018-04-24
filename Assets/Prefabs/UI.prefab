@@ -1136,6 +1136,8 @@ MonoBehaviour:
   pause_button: {fileID: 1544732242368688}
   player: {fileID: 0}
   enemy: {fileID: 0}
+  distance: {fileID: 0}
+  spawn: {fileID: 0}
   audio: {fileID: 82040629182350292}
 --- !u!114 &114595159389094604
 MonoBehaviour:

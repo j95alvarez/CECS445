@@ -22,12 +22,10 @@ public class EnemyController : MonoBehaviour {
     }
     // Update is called once per frame
     void FixedUpdate () { 
-		gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2 (xMoveDirection * enemySpeed * Time.deltaTime, 0);
+		GetComponent<Rigidbody2D>().velocity = new Vector2 (xMoveDirection * enemySpeed * Time.deltaTime, 0);
 	}
 
 	void OnCollisionEnter2D(Collision2D collisionObject){
-		Debug.Log (collisionObject.gameObject.tag);
-
         if (collisionObject.gameObject.tag == "Player") {
             //Destroy(collisionObject.gameObject);
             collisionObject.gameObject.GetComponent<PlayerController>().alive = false;
