@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour {
 	public bool alive;
 
 	public Animator anim;
+	public GameObject dustPuff;
+	private ParticleSystem dustParticle;
 
     void Start() {
         startGame = false;
@@ -45,6 +47,10 @@ public class PlayerController : MonoBehaviour {
 	public void Jump(){
         anim.SetBool("Jumping", true);
         GetComponent<Rigidbody2D> ().AddForce (Vector2.up * jumpHeight * Time.timeScale);
+
+		//Instantiate the dust particles when landing after a jump
+		GameObject dustObject = Instantiate(dustPuff, this.transform.position, this.transform.rotation) as GameObject;
+		dustParticle = dustObject.GetComponent<ParticleSystem>();
         
     }
 
