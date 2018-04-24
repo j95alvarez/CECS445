@@ -7,14 +7,22 @@ public class EnemyController : MonoBehaviour {
 	public float enemySpeed;
 	public int xMoveDirection;
 
-	// Use this for initialization
-	void Start () {
+    private Animator anim;
+    public bool startGame;
 
-	}
+    // Use this for initialization
+    void Start () {
+        anim = GetComponentInChildren<Animator>();
+        startGame = false;
+    }
 
-	// Update is called once per frame
-	void FixedUpdate () { 
-		gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2 (xMoveDirection * enemySpeed, 0);
+    private void Update() {
+        if (startGame)
+            anim.SetFloat("speed", 1.0f);
+    }
+    // Update is called once per frame
+    void FixedUpdate () { 
+		gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2 (xMoveDirection * enemySpeed * Time.deltaTime, 0);
 	}
 
 	void OnCollisionEnter2D(Collision2D collisionObject){

@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Firebase;
+using Firebase.Database;
+using Firebase.Unity.Editor;
+
 public class PlayerController : MonoBehaviour {
+
     public bool startGame;
 	public int jumpHeight;
 	public bool canJump;
@@ -25,10 +30,10 @@ public class PlayerController : MonoBehaviour {
 
     void Start() {
         startGame = false;
-		anim = gameObject.GetComponent<Animator> ();
+		anim = gameObject.GetComponentInChildren<Animator>();
         box = GetComponent<BoxCollider2D>();
-        anim.SetBool("Running", true);
-
+        //anim.SetBool("Running", true);
+        //anim.SetFloat("speed", 0.1f);
         
 
         //Lets us know that the player is alive at the start of the game
@@ -37,6 +42,9 @@ public class PlayerController : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        if (startGame)
+            anim.SetFloat("speed", 1.0f);
+
         Swipe();
     }
 
@@ -66,6 +74,7 @@ public class PlayerController : MonoBehaviour {
                     Jump();
                 }
             }
+            /*
             //swipe down
             if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
             {
@@ -76,6 +85,7 @@ public class PlayerController : MonoBehaviour {
                 Debug.Log("Current BoxCollider Size : " + box.size);
                 
             }
+            */
             //swipe right
             if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
             {
@@ -105,11 +115,13 @@ public class PlayerController : MonoBehaviour {
         canJump = true;
     }
 
+    /*
 	public void OnCollisionExit2D (Collision2D other) {
         anim.SetBool("Sliding", false);
         anim.SetBool("Running", false);
         canJump = false;
 	}
+    */
     
 	public void Jump(){
         anim.SetBool("Jumping", true);

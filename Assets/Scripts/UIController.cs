@@ -7,14 +7,18 @@ public class UIController : MonoBehaviour {
     public GameObject pause_menu;
 	public GameObject gameOver_menu; 
     public GameObject pause_button;
+
     public GameObject player;
+    public GameObject enemy;
 
     public AudioSource audio;
 
     private PlayerController pc;
+    private EnemyController ec;
     // Use this for initialization
     void Start () {
         pc = player.gameObject.GetComponent<PlayerController>();
+        ec = enemy.gameObject.GetComponent<EnemyController>();
 	}
 
 	void Update(){
@@ -30,6 +34,7 @@ public class UIController : MonoBehaviour {
 			//Sets the pause button to true meaning it'll appear when the game starts
             pause_button.gameObject.SetActive(true);
             pc.startGame = true;
+            ec.startGame = true;
         } else {
             Debug.Log("main_menu has no reference to the Main Menu Panel.");
         }
