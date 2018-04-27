@@ -214,6 +214,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+
 --- !u!1 &382947473
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,10 +479,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1368900956504542, guid: ea8efe46afc830d47bfe97d226151570, type: 2}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea8efe46afc830d47bfe97d226151570, type: 2}
   m_IsPrefabParent: 0
@@ -725,6 +722,7 @@ Prefab:
     - {fileID: 114976956056973650, guid: b2b15606284788042b201f060631b019, type: 2}
     - {fileID: 114564378627482572, guid: b2b15606284788042b201f060631b019, type: 2}
     - {fileID: 114255740391485568, guid: b2b15606284788042b201f060631b019, type: 2}
+
   m_ParentPrefab: {fileID: 100100000, guid: b2b15606284788042b201f060631b019, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1284560693

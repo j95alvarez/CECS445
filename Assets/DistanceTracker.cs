@@ -4,10 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class DistanceTracker : MonoBehaviour {
-    public int distanceCounter;
-    public float targetAmount;
+    public bool startGame;
 
-    public Text distanceText;
+    public int distanceCounter;
+
+    [SerializeField]
+    private float targetAmount;
+
+    [SerializeField]
+    private Text distanceText;
 
 
     private int counter = 0;
@@ -20,7 +25,7 @@ public class DistanceTracker : MonoBehaviour {
 	void Update () {
         // Counts up to the target amount (in seconds) and the distance is
         // incremented and set
-        if ((counter++) * Time.deltaTime >= targetAmount) {
+        if (startGame && ((counter++) * Time.deltaTime >= targetAmount)) {
             counter = 0;
             distanceCounter++;
             SetText();

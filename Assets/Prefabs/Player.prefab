@@ -284,6 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f74b624fef1a4540b2b26075ab8e35a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startGame: 0
   distanceCounter: 0
   targetAmount: 0.7
   distanceText: {fileID: 0}

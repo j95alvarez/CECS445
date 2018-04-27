@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour {
 
     void Start() {
         startGame = false;
-		anim = gameObject.GetComponentInChildren<Animator>();
+		anim = GetComponentInChildren<Animator>();
         box = GetComponent<BoxCollider2D>();
         //anim.SetBool("Running", true);
         //anim.SetFloat("speed", 0.1f);
