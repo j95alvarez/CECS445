@@ -8,6 +8,8 @@ TagManager:
   - GameOver
   - Wall
   - Enemy
+  - Pause
+  - Mute
   layers:
   - Default
   - TransparentFX
