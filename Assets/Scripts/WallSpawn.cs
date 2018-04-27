@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WallSpawn : MonoBehaviour {
     public bool startGame;
+    public float currentSpeed = 0;
 
     [SerializeField]
     private GameObject[] walls;
@@ -17,7 +18,12 @@ public class WallSpawn : MonoBehaviour {
 		start += Time.deltaTime;
 		if (startGame && (start >= delayTime)) {
             start = 0;
-            Instantiate(walls[Random.Range(0, walls.Length)], transform.position, Quaternion.identity);
+            var wall = Instantiate(walls[Random.Range(0, walls.Length)], transform.position, Quaternion.identity);
+            wall.GetComponent<WallScroll>().speed = currentSpeed;
         }
 	}
+
+    public void ChangeSpeed(float newSpeed) {
+        currentSpeed += newSpeed;
+    }
 }

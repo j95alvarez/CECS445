@@ -14,11 +14,20 @@ public class DistanceTracker : MonoBehaviour {
     [SerializeField]
     private Text distanceText;
 
+    [SerializeField]
+    private int distanceMaker;
+
+    [SerializeField]
+    private GameObject spawner;
+
 
     private int counter = 0;
+    private WallSpawn ws;
+
 	// Use this for initialization
 	void Start () {
         SetText();
+        ws = spawner.GetComponent<WallSpawn>();
 	}
 	
 	// Update is called once per frame
@@ -29,8 +38,13 @@ public class DistanceTracker : MonoBehaviour {
             counter = 0;
             distanceCounter++;
             SetText();
+
+            if (distanceCounter % distanceMaker == 0) {
+                ws.ChangeSpeed(0.5f);
+            }
         }
 	}
+
 
     // Sets the text in the scene to the current distance the player has ran
     void SetText() {
