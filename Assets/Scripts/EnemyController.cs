@@ -28,7 +28,15 @@ public class EnemyController : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D collisionObject){
         if (collisionObject.gameObject.tag == "Player") {
             //Destroy(collisionObject.gameObject);
-            collisionObject.gameObject.GetComponent<PlayerController>().alive = false;
+            //collisionObject.gameObject.GetComponent<PlayerController>().alive = false;
+
+            var player = collisionObject.gameObject;
+            var pc = player.GetComponent<PlayerController>().alive = false;
+
+            // Adds to the leaderboard
+            var distance = player.GetComponent<DistanceTracker>().distanceCounter;
+            GooglePlay.AddScoreToGlobalLeaderboard(distance);
+
         } else {
             if (!collisionObject.collider.CompareTag("Untagged"))
                 Destroy(collisionObject.gameObject);
