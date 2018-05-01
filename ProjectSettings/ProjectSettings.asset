@@ -11,8 +11,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: cecs445
-  productName: RunkittyRun
+  companyName: CECS445
+  productName: Run Kitty Run
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -158,9 +158,9 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.cecs445.RunkittyRun
+    Android: com.cecs445.runkittyrun
   buildNumber: {}
-  AndroidBundleVersionCode: 2
+  AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
@@ -243,7 +243,7 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/juana/Downloads/runkittyrun_keystore.keystore
+  AndroidKeystoreName: C:/Users/juana/Documents/GitHub/CECS445/runkittyrun_keystore.keystore
   AndroidKeyaliasName: juan
   AndroidTVCompatibility: 1
   AndroidIsGame: 1

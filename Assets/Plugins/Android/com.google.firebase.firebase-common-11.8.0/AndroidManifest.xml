@@ -7,7 +7,7 @@
     <application>
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"
-            android:authorities="com.cecs445.RunkittyRun.firebaseinitprovider"
+            android:authorities="com.cecs445.runkittyrun.firebaseinitprovider"
             android:exported="false"
             android:initOrder="100" />
     </application>
