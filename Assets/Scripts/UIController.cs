@@ -36,6 +36,11 @@ public class UIController : MonoBehaviour {
     private DistanceTracker dt;
     private WallSpawn ws;
 
+    private void Awake()
+    {
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
+    }
+
     // Use this for initialization
     void Start () {
         pc = player.GetComponent<PlayerController>();

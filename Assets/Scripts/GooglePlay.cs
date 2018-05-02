@@ -1,37 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GooglePlayGames;
 
-public class GooglePlay : MonoBehaviour {
-    public static void AddScoreToGlobalLeaderboard(int score) {
-        #if UNITY_ANDROID && !UNITY_EDITOR
-            if (PlayerPrefs.GetInt("OptOut", 0) == 0)
-            {
-                if (connectedToGooglePlay)
-                {
-                    Social.ReportScore(score, GPGSIds.leaderboard_global_leaderboard, success => { });
-                }
+public class GooglePlay : MonoBehaviour
+{
 
-                else
-                {
-                    Social.localUser.Authenticate((bool success) => { connectedToGooglePlay = success; });
-                }
-            }
-        #endif
+    private void Start()
+    {
+        InitializeGooglePlay();
     }
 
-    public static void InitializeGooglePlay() {
-        #if UNITY_ANDROID && !UNITY_EDITOR
-            //sign in to Google Play Services
-            PlayGamesPlatform.Activate();
+    public static void AddScoreToGlobalLeaderboard(int score)
+    {
+#if UNITY_ANDROID
+        Social.ReportScore(score, GPGSIds.leaderboard_top_runners, success => { });
+#endif
+    }
 
-            if (!LeaderBoardController.connectedToGooglePlay)
-            {
-                Social.localUser.Authenticate((bool success) =>
-                {
-                    LeaderBoardController.connectedToGooglePlay = success;
-                });
-            }
-        #endif
+    public static void InitializeGooglePlay()
+    {
+#if UNITY_ANDROID
+        //sign in to Google Play Services
+        PlayGamesPlatform.Activate();
+
+        Social.localUser.Authenticate((bool success) => { });
+#endif
     }
 }
