@@ -20,14 +20,20 @@ public class DistanceTracker : MonoBehaviour {
     [SerializeField]
     private GameObject spawner;
 
+    [SerializeField]
+    private GameObject antagonist;
+
 
     private int counter = 0;
     private WallSpawn ws;
+
+    private EnemyController ec;
 
 	// Use this for initialization
 	void Start () {
         SetText();
         ws = spawner.GetComponent<WallSpawn>();
+        ec =antagonist.GetComponent<EnemyController>();
 	}
 	
 	// Update is called once per frame
@@ -41,6 +47,7 @@ public class DistanceTracker : MonoBehaviour {
 
             if (distanceCounter % distanceMaker == 0) {
                 ws.ChangeSpeed(0.5f);
+                ec.ChangeSpeed(0.1f);
             }
         }
 	}
