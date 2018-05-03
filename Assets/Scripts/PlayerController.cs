@@ -125,7 +125,8 @@ public class PlayerController : MonoBehaviour {
     
 	public void Jump(){
         anim.SetBool("Jumping", true);
-        GetComponent<Rigidbody2D> ().AddForce (Vector2.up * jumpHeight * Time.timeScale); 
+        GetComponent<Rigidbody2D> ().AddForce (Vector2.up * jumpHeight * Time.timeScale);
+        canJump = false;
     }
 
 }

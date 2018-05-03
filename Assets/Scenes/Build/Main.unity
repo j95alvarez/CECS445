@@ -642,6 +642,29 @@ Prefab:
       propertyPath: spawn
       value: 
       objectReference: {fileID: 893133743}
+    - target: {fileID: 1071314653673796, guid: b2b15606284788042b201f060631b019, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074086099989702, guid: b2b15606284788042b201f060631b019, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224035146099720800, guid: b2b15606284788042b201f060631b019,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -85
+      objectReference: {fileID: 0}
+    - target: {fileID: 224035146099720800, guid: b2b15606284788042b201f060631b019,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -334
+      objectReference: {fileID: 0}
+    - target: {fileID: 114864079324284538, guid: b2b15606284788042b201f060631b019,
+        type: 2}
+      propertyPath: m_Text
+      value: Leaderboard
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b2b15606284788042b201f060631b019, type: 2}
   m_IsPrefabParent: 0
