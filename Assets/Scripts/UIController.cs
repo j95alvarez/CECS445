@@ -26,6 +26,9 @@ public class UIController : MonoBehaviour {
     private GameObject distance;
 
     [SerializeField]
+    private GameObject background;
+
+    [SerializeField]
     private GameObject spawn;
 
     [SerializeField]
@@ -35,6 +38,7 @@ public class UIController : MonoBehaviour {
     private EnemyController ec;
     private DistanceTracker dt;
     private WallSpawn ws;
+    private Scroller s;
 
     private void Awake()
     {
@@ -47,7 +51,9 @@ public class UIController : MonoBehaviour {
         ec = enemy.GetComponent<EnemyController>();
         dt = player.GetComponent<DistanceTracker>();
         ws = spawn.GetComponent<WallSpawn>();
-	}
+        s = background.GetComponent<Scroller>();
+
+    }
 
 	void Update(){
 		if (!pc.alive) {
@@ -65,6 +71,7 @@ public class UIController : MonoBehaviour {
             ec.startGame = true;
             dt.startGame = true;
             ws.startGame = true;
+            s.startGame = true;
         } else {
             Debug.Log("main_menu has no reference to the Main Menu Panel.");
         }
@@ -96,5 +103,4 @@ public class UIController : MonoBehaviour {
     public void MuteSound() {
         audio.mute = !audio.mute;
     }
-
 }
