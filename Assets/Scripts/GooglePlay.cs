@@ -27,4 +27,9 @@ public class GooglePlay : MonoBehaviour
         Social.localUser.Authenticate((bool success) => { });
 #endif
     }
+
+    public static void ShowLeaderBoard()
+    {
+        Social.ShowLeaderboardUI();
+    }
 }
