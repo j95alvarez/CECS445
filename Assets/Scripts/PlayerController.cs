@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour {
     public Vector2 firstPressPos;
     public Vector2 secondPressPos;
     public Vector2 currentSwipe;
+	public GameObject dustPuff;
+	private ParticleSystem dustParticle;
 
 
     public ObjectDetection od;
@@ -126,6 +128,15 @@ public class PlayerController : MonoBehaviour {
 	public void Jump(){
         anim.SetBool("Jumping", true);
         GetComponent<Rigidbody2D> ().AddForce (Vector2.up * jumpHeight * Time.timeScale); 
+		CreateJumpParticles ();
+
     }
+
+	public void CreateJumpParticles(){
+		//Instantiate the dust particles when landing after a jump
+		GameObject dustObject = Instantiate(dustPuff, this.transform.position, this.transform.rotation) as GameObject;
+		dustParticle = dustObject.GetComponent<ParticleSystem>();
+		Destroy (dustObject, 1f);
+	}
 
 }
