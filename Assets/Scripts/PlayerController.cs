@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour {
     public bool startGame;
 	public int jumpHeight;
 	public bool canJump;
+    private int doubleJump;
+    private float slideTime;
     public Vector2 firstPressPos;
     public Vector2 secondPressPos;
     public Vector2 currentSwipe;
@@ -44,7 +46,15 @@ public class PlayerController : MonoBehaviour {
     void Update () {
         if (startGame)
             anim.SetFloat("speed", 1.0f);
-
+        //Debug.Log(anim.GetBool("Sliding"));
+        if (slideTime >= 0.6f)
+        {
+            ResetRunAnimation();
+        }
+        else if (anim.GetBool("Sliding") && slideTime < 0.6f)
+        {
+            slideTime += Time.deltaTime;
+        }
         Swipe();
     }
 
@@ -69,23 +79,26 @@ public class PlayerController : MonoBehaviour {
             //swipe upwards
             if (currentSwipe.y > 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
             {
-                if (canJump)
+                if (canJump && doubleJump < 2)
                 {
+                    doubleJump += 1;
                     Jump();
                 }
             }
-            /*
+            
             //swipe down
             if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
             {
                 anim.SetBool("Running", false);
                 anim.SetBool("Sliding", true);
                 box.size = new Vector2(0.6f, 0.6f);
-                box.offset = new Vector2(0, -0.7f);
+                slideTime += Time.deltaTime;
+                box.offset = new Vector2(0, -0.35f);
                 Debug.Log("Current BoxCollider Size : " + box.size);
                 
             }
-            */
+
+            /*
             //swipe right
             if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
             {
@@ -95,14 +108,19 @@ public class PlayerController : MonoBehaviour {
 
                 if (wallToDestroy != null)
                     wallToDestroy.GetComponent<WallScroll>().OnDestroyWall();
-            }
+            }*/
            
         }
     }
 
     public void ResetRunAnimation() {
-        box.size = new Vector2(0.6f, 1.3f);
 
+        box.offset = new Vector2(0, 0);
+        box.size = new Vector2(0.6f, 1.3f);
+        box.offset = new Vector2(0, -0.35f);
+        
+
+        slideTime = 0;
         anim.SetBool("Running", true);
         anim.SetBool("Sliding", false);
 
@@ -112,18 +130,23 @@ public class PlayerController : MonoBehaviour {
 	public void OnCollisionEnter2D (Collision2D other) {
         anim.SetBool("Jumping", false);
         anim.SetBool("Running", true);
+        
         canJump = true;
+        doubleJump = 0;
     }
 
-    /*
+    
 	public void OnCollisionExit2D (Collision2D other) {
         anim.SetBool("Sliding", false);
         anim.SetBool("Running", false);
+        //box.size = new Vector2(0.6f, 1.3f);
+
         canJump = false;
 	}
-    */
+    
     
 	public void Jump(){
+        anim.SetBool("Sliding", false);
         anim.SetBool("Jumping", true);
         GetComponent<Rigidbody2D> ().AddForce (Vector2.up * jumpHeight * Time.timeScale); 
     }
