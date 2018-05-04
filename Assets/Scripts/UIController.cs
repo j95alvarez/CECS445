@@ -43,6 +43,8 @@ public class UIController : MonoBehaviour {
     private void Awake()
     {
         Screen.orientation = ScreenOrientation.LandscapeLeft;
+		//This is to continue the game after restart 
+		Time.timeScale = 1;
     }
 
     // Use this for initialization
