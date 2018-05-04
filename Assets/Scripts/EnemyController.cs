@@ -51,7 +51,7 @@ public class EnemyController : MonoBehaviour {
 
     public void ChangeSpeed(float newSpeed)
     {
-        enemySpeed += newSpeed;
+        //enemySpeed += newSpeed;
     }
 
     IEnumerator Delay(GameObject g)
