@@ -56,7 +56,7 @@ public class EnemyController : MonoBehaviour {
 
     IEnumerator Delay(GameObject g)
     {
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(.4f);
         Destroy(g);
         delayDestroy = null;
     }
