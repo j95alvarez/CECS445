@@ -5,7 +5,6 @@ using UnityEngine;
 public class Scroller : MonoBehaviour
 {
     public bool startGame;
-
     public float speed = 0.05f;
 
     // Use this for initialization
@@ -21,6 +20,7 @@ public class Scroller : MonoBehaviour
         {
             Vector2 offset = new Vector2(Time.time * speed, 0);
             GetComponent<Renderer>().material.mainTextureOffset = offset;
+
         }
     }
 }
