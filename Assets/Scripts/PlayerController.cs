@@ -14,7 +14,8 @@ public class PlayerController : MonoBehaviour {
     public Vector2 firstPressPos;
     public Vector2 secondPressPos;
     public Vector2 currentSwipe;
-
+	public GameObject dustPuff;
+	private ParticleSystem dustParticle;
 
     public ObjectDetection od;
 
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour {
         box = GetComponent<BoxCollider2D>();
         //anim.SetBool("Running", true);
         //anim.SetFloat("speed", 0.1f);
+
         
 
         //Lets us know that the player is alive at the start of the game
@@ -72,6 +74,7 @@ public class PlayerController : MonoBehaviour {
                 if (canJump)
                 {
                     Jump();
+
                 }
             }
             /*
@@ -127,6 +130,15 @@ public class PlayerController : MonoBehaviour {
         anim.SetBool("Jumping", true);
         GetComponent<Rigidbody2D> ().AddForce (Vector2.up * jumpHeight * Time.timeScale);
         canJump = false;
+
+		CreateJumpParticles ();
     }
+
+	public void CreateJumpParticles(){
+		//Instantiate the dust particles when landing after a jump
+		GameObject dustObject = Instantiate(dustPuff, this.transform.position, this.transform.rotation) as GameObject;
+		dustParticle = dustObject.GetComponent<ParticleSystem>();
+		Destroy (dustObject, 1f);
+	}
 
 }
