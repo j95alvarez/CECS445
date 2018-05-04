@@ -33,10 +33,6 @@ public class PlayerController : MonoBehaviour {
         startGame = false;
 		anim = GetComponentInChildren<Animator>();
         box = GetComponent<BoxCollider2D>();
-        //anim.SetBool("Running", true);
-        //anim.SetFloat("speed", 0.1f);
-
-        
 
         //Lets us know that the player is alive at the start of the game
         alive = true;
