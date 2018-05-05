@@ -28,7 +28,7 @@ public class GooglePlay : MonoBehaviour
 #endif
     }
 
-    public static void ShowLeaderBoard()
+    public void ShowLeaderBoard()
     {
         Social.ShowLeaderboardUI();
     }

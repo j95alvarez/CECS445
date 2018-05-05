@@ -132,9 +132,9 @@ public class PlayerController : MonoBehaviour {
 
 	public void CreateJumpParticles(){
 		//Instantiate the dust particles when landing after a jump
-		GameObject dustObject = Instantiate(dustPuff, this.transform.position, this.transform.rotation) as GameObject;
-		dustParticle = dustObject.GetComponent<ParticleSystem>();
-		Destroy (dustObject, 1f);
+		//GameObject dustObject = Instantiate(dustPuff, this.transform.position, this.transform.rotation) as GameObject;
+		//dustParticle = dustObject.GetComponent<ParticleSystem>();
+		//Destroy (dustObject, 1f);
 	}
 
 }

@@ -93,7 +93,13 @@ public class UIController : MonoBehaviour {
 		if (gameOver_menu != null) {
 			pause_button.SetActive (!active);
 			gameOver_menu.SetActive (active);
-		} else {
+            pc.startGame = false;
+            ec.startGame = false;
+            dt.startGame = false;
+            ws.startGame = false;
+            s.startGame = false;
+            Time.timeScale = 0;
+        } else {
 			Debug.Log("gameOver_menu has no reference to the Game Over Menu Panel.");
 		}
 	}
