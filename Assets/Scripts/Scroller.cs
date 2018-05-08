@@ -7,12 +7,6 @@ public class Scroller : MonoBehaviour
     public bool startGame;
     public float speed = 0.05f;
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
